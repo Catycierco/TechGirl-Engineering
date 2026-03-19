@@ -1,0 +1,411 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    cursor: url('https://cdn-icons-png.flaticon.com/512/64/64572.png'), auto;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+body.light-mode {
+    background: linear-gradient(135deg, #f72585, #ff9de3, #4cc9f0);
+    color: #222;
+}
+
+body.dark-mode {
+    background: linear-gradient(135deg, #0d0d0d, #1a1a1a, #3a0ca3);
+    color: #eee;
+}
+
+header {
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    animation: fadeUp 0.8s ease;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 22px;
+    color: white;
+}
+
+.logo span {
+    font-size: 26px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    background: linear-gradient(to right, #f72585, #4cc9f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    background-clip: text; 
+    color: #f72585; 
+}
+
+
+/* NAV */
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background: #f72585;
+    transition: 0.3s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+#theme-toggle {
+    padding: 10px 15px;
+    background: linear-gradient(to right, #f72585, #7209b7);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 0 10px rgba(247,37,133,0.5);
+    transition: 0.3s;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(247,37,133,0.7);
+}
+
+.hero {
+    text-align: center;
+    padding: 140px 20px;
+    color: white;
+    animation: fadeUp 1s ease;
+}
+
+.hero h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    background: linear-gradient(to right, #f72585, #7209b7);
+    color: white;
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+.btn:hover {
+    animation: glow 1.5s infinite;
+}
+
+.produtos {
+    padding: 100px 20px;
+    text-align: center;
+    animation: fadeUp 1s ease;
+}
+
+#eletronica {
+    background: white;
+}
+
+#mecanica {
+    background: #f3f3f3;
+}
+
+.cards {
+    display: flex;
+    gap: 35px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.card {
+    text-decoration: none;
+    width: 280px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    color: #333;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    transition: transform 0.6s, box-shadow 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.card-inner:hover {
+    transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+    box-shadow: 0 20px 40px rgba(247,37,133,0.4);
+}
+
+.card-front, .card-back {
+    backface-visibility: hidden;
+}
+
+.card:hover::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(247,37,133,0.3), transparent 70%);
+    top: -50%;
+    left: -50%;
+    transition: 0.5s;
+    opacity: 0.7;
+}
+
+.produto-page {
+    background: white;
+    padding: 100px 20px;
+    min-height: 80vh;
+    animation: fadeUp 1s ease;
+}
+
+.produto-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.produto-grid {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+.produto-item {
+    background: #fafafa;
+    padding: 30px;
+    border-radius: 25px;
+    flex: 1;
+    min-width: 280px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    transition: 0.4s;
+}
+
+.produto-item:hover {
+    transform: translateY(-10px);
+}
+
+.produto-item img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.btn-comprar {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 24px;
+    background: linear-gradient(to right, #7209b7, #f72585);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+.btn-comprar:hover {
+    animation: pulse 1s infinite;
+}
+
+.contato {
+    background: white;
+    padding: 100px 20px;
+    text-align: center;
+    animation: fadeUp 1s ease;
+}
+
+form {
+    max-width: 550px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+form input,
+form textarea {
+    margin-bottom: 18px;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border: 1px solid #f72585;
+    box-shadow: 0 0 10px rgba(247,37,133,0.3);
+}
+
+form button {
+    padding: 14px;
+    background: linear-gradient(to right, #f72585, #7209b7);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+form button:hover {
+    animation: glow 2s infinite;
+}
+
+footer {
+    background: #000;
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 14px;
+}
+
+body.dark-mode .produtos,
+body.dark-mode #eletronica,
+body.dark-mode #mecanica {
+    background: #1a1a1a;
+    color: #eee;
+}
+
+body.dark-mode .card-inner {
+    background: #2c2c2c;
+    color: #fff;
+    box-shadow: 0 15px 35px rgba(247,37,133,0.2);
+}
+
+body.dark-mode .card:hover::before {
+    background: radial-gradient(circle, rgba(247,37,133,0.2), transparent 70%);
+}
+
+body.dark-mode .btn,
+body.dark-mode #theme-toggle,
+body.dark-mode .btn-comprar {
+    color: white;
+    background: linear-gradient(to right, #f72585, #7209b7);
+}
+
+body.dark-mode .contato {
+    background: #1a1a1a;
+    color: #eee;
+}
+
+body.dark-mode form input,
+body.dark-mode form textarea {
+    background: #333;
+    color: #eee;
+    border: 1px solid #f72585;
+}
+
+body.dark-mode form input::placeholder,
+body.dark-mode form textarea::placeholder {
+    color: #ccc;
+}
+
+body.dark-mode footer {
+    background: #000;
+    color: #fff;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 10px #f72585; }
+    50% { box-shadow: 0 0 25px #7209b7; }
+    100% { box-shadow: 0 0 10px #f72585; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .produto-grid {
+        flex-direction: column;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+}
