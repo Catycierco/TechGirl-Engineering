@@ -8,31 +8,32 @@
 
     <style>
         /* CARROSSEL */
-        .carousel-container {
+        .carousel {
             width: 100%;
             display: flex;
             justify-content: center;
-            margin: 50px 0;
+            margin: 40px 0;
         }
 
-        .carousel {
+        .carousel-box {
             width: 500px;
             height: 300px;
-            position: relative;
             overflow: hidden;
             border-radius: 15px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        .carousel img {
+        .carousel-box img {
             width: 100%;
             height: 100%;
-            position: absolute;
             object-fit: cover;
+            position: absolute;
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
 
-        .carousel img.active {
+        .carousel-box img.active {
             opacity: 1;
         }
     </style>
@@ -67,20 +68,19 @@
         <h2>Engenharia com Cor, Potência e Precisão</h2>
         <p>Peças de eletrónica e mecânica para mentes criativas e inovadoras.</p>
         <a href="#eletronica" class="btn">Explorar Produtos</a>
+
+        <!-- CARROSSEL AQUI -->
+        <div class="carousel">
+            <div class="carousel-box">
+                <img src="imagem1.jpg" class="active">
+                <img src="imagem2.jpg">
+                <img src="imagem3.jpg">
+                <img src="imagem4.jpg">
+            </div>
+        </div>
+
     </div>
 </section>
-
-<!-- CARROSSEL NO MEIO DA PÁGINA -->
-<div class="carousel-container">
-    <div class="carousel" id="carousel">
-
-        <img src="imagem1.jpg" class="active">
-        <img src="imagem2.jpg">
-        <img src="imagem3.jpg">
-        <img src="imagem4.jpg">
-
-    </div>
-</div>
 
 <section id="eletronica" class="produtos">
     <div class="container">
@@ -170,7 +170,7 @@
 </footer>
 
 <script>
-// TEMA
+/* TEMA */
 const toggle = document.getElementById('theme-toggle');
 toggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
@@ -178,7 +178,7 @@ toggle.addEventListener('click', () => {
     toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
 });
 
-// PARTÍCULAS
+/* PARTICULAS */
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -200,9 +200,13 @@ function animate(){
     for(let p of particles){
         ctx.beginPath();
         ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle = document.body.classList.contains('dark-mode') ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.3)';
+        ctx.fillStyle = document.body.classList.contains('dark-mode') 
+            ? 'rgba(255,255,255,0.6)' 
+            : 'rgba(255,255,255,0.3)';
         ctx.fill();
-        p.x += p.dx; p.y += p.dy;
+        p.x += p.dx; 
+        p.y += p.dy;
+
         if(p.x<0||p.x>canvas.width)p.dx*=-1;
         if(p.y<0||p.y>canvas.height)p.dy*=-1;
     }
@@ -215,16 +219,15 @@ window.addEventListener('resize',()=>{
     canvas.height = window.innerHeight;
 });
 
-// CARROSSEL
+/* CARROSSEL */
 let index = 0;
-const images = document.querySelectorAll("#carousel img");
+const images = document.querySelectorAll(".carousel-box img");
 
 setInterval(() => {
     images[index].classList.remove("active");
     index = (index + 1) % images.length;
     images[index].classList.add("active");
 }, 3000);
-
 </script>
 
 </body>
