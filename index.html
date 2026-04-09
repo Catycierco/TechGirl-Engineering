@@ -12,14 +12,17 @@
             font-family: Arial, sans-serif;
         }
 
-        /* CARROSSEL MAIS SIMPLES E 100% FUNCIONAL */
+        /* =======================
+           CARROSSEL FUNCIONAL
+        ======================= */
+
         .carousel {
             width: 320px;
             height: 220px;
             margin: 40px auto;
             overflow: hidden;
             border-radius: 15px;
-            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         .carousel-track {
@@ -33,15 +36,17 @@
             width: 100%;
             height: 220px;
             object-fit: cover;
+            flex-shrink: 0;
         }
 
         @keyframes slide {
-            0%   { transform: translateX(0%); }
-            25%  { transform: translateX(-100%); }
-            50%  { transform: translateX(-200%); }
-            75%  { transform: translateX(-300%); }
+            0% { transform: translateX(0%); }
+            25% { transform: translateX(-100%); }
+            50% { transform: translateX(-200%); }
+            75% { transform: translateX(-300%); }
             100% { transform: translateX(0%); }
         }
+
     </style>
 </head>
 
@@ -69,22 +74,19 @@
     </div>
 </header>
 
-<!-- HERO -->
+<!-- ===================== HOME ===================== -->
 <section id="home" class="hero">
     <div class="container">
 
         <h2>Engenharia com Cor, Potência e Precisão</h2>
         <p>Peças de eletrónica e mecânica para mentes criativas e inovadoras.</p>
 
-        <!-- 🔽 CARROSSEL FUNCIONAL 🔽 -->
+        <!-- ================= CARROSSEL ================= -->
         <div class="carousel">
             <div class="carousel-track">
 
-                <!-- ⚡ Eletrónica -->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Arduino_Uno_-_R3.jpg">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/ESP32-WROOM-32.jpg">
-
-                <!-- 🔧 Mecânica -->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Gears2.jpg">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Ball_bearing.jpg">
 
@@ -95,78 +97,67 @@
     </div>
 </section>
 
-<!-- ELETRÓNICA -->
+<!-- ================= ELETRÓNICA ================= -->
 <section id="eletronica" class="produtos">
     <div class="container">
         <h2>⚡ Peças de Eletrónica</h2>
+
         <div class="cards">
             <a href="microcontroladores.html" class="card">
-                <div class="card-inner">
-                    <h3>Microcontroladores</h3>
-                    <p>Arduino, ESP32, Raspberry Pi.</p>
-                </div>
+                <h3>Microcontroladores</h3>
+                <p>Arduino, ESP32, Raspberry Pi.</p>
             </a>
 
             <a href="sensores.html" class="card">
-                <div class="card-inner">
-                    <h3>Sensores</h3>
-                    <p>Temperatura, movimento, luz.</p>
-                </div>
+                <h3>Sensores</h3>
+                <p>Temperatura, movimento, luz.</p>
             </a>
 
             <a href="componentes.html" class="card">
-                <div class="card-inner">
-                    <h3>Componentes</h3>
-                    <p>Resistências, LEDs, transístores.</p>
-                </div>
+                <h3>Componentes</h3>
+                <p>Resistências, LEDs, transístores.</p>
             </a>
         </div>
     </div>
 </section>
 
-<!-- MECÂNICA -->
+<!-- ================= MECÂNICA ================= -->
 <section id="mecanica" class="produtos destaque">
     <div class="container">
         <h2>🔧 Peças de Mecânica</h2>
-        <div class="cards">
 
+        <div class="cards">
             <a href="rolamentos.html" class="card">
-                <div class="card-inner">
-                    <h3>Rolamentos</h3>
-                    <p>Alta precisão industrial.</p>
-                </div>
+                <h3>Rolamentos</h3>
+                <p>Alta precisão industrial.</p>
             </a>
 
             <a href="engrenagens.html" class="card">
-                <div class="card-inner">
-                    <h3>Engrenagens</h3>
-                    <p>Metálicas e técnicas.</p>
-                </div>
+                <h3>Engrenagens</h3>
+                <p>Metálicas e técnicas.</p>
             </a>
 
             <a href="motores.html" class="card">
-                <div class="card-inner">
-                    <h3>Motores</h3>
-                    <p>DC, Servo e industriais.</p>
-                </div>
+                <h3>Motores</h3>
+                <p>DC, Servo e industriais.</p>
             </a>
-
         </div>
     </div>
 </section>
 
-<!-- CONTATO -->
+<!-- ================= CONTATO ================= -->
 <section id="contato" class="contato">
     <div class="container">
         <h2>Entre em Contato</h2>
         <p>Precisa de ajuda ou orçamento personalizado? Fale connosco.</p>
-        <a href="contato.html" class="btn">Abrir Formulário de Contato</a>
+
+        <a href="contato.html" class="btn">Abrir Formulário</a>
     </div>
 </section>
 
 <footer>
     <div class="container">
-        <p>© 2026 TechGirl Engineering 💜 | Engenharia com Estilo</p>
+        <p>© 2026 TechGirl Engineering 💜</p>
     </div>
 </footer>
 
