@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+«<!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
@@ -9,36 +9,40 @@
     <style>
         /* CARROSSEL */
         .carousel {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            margin: 40px 0;
-        }
-
-        .carousel-box {
-            width: 500px;
+            width: 300px;
             height: 300px;
-            overflow: hidden;
-            border-radius: 15px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 40px auto;
+            perspective: 1000px;
         }
 
-        .carousel-box img {
+        .carousel-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 12s infinite linear;
+        }
+
+        .carousel-inner img {
+            position: absolute;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            position: absolute;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+            border-radius: 15px;
         }
 
-        .carousel-box img.active {
-            opacity: 1;
+        .img1 { transform: rotateY(0deg) translateZ(150px); }
+        .img2 { transform: rotateY(90deg) translateZ(150px); }
+        .img3 { transform: rotateY(180deg) translateZ(150px); }
+        .img4 { transform: rotateY(270deg) translateZ(150px); }
+
+        @keyframes rotate {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
         }
     </style>
-</head>
 
+</head>
 <body class="light-mode">
 
 <canvas id="particle-canvas"></canvas>
@@ -67,18 +71,27 @@
     <div class="container">
         <h2>Engenharia com Cor, Potência e Precisão</h2>
         <p>Peças de eletrónica e mecânica para mentes criativas e inovadoras.</p>
-        <a href="#eletronica" class="btn">Explorar Produtos</a>
 
-        <!-- CARROSSEL AQUI -->
+        <!-- 🔽 AQUI METES OS LINKS DAS IMAGENS 🔽 -->
         <div class="carousel">
-            <div class="carousel-box">
-                <img src="imagem1.jpg" class="active">
-                <img src="imagem2.jpg">
-                <img src="imagem3.jpg">
-                <img src="imagem4.jpg">
+            <div class="carousel-inner">
+
+                <!-- IMAGEM 1 -->
+                <img src="COLOCA_AQUI_O_LINK_DA_IMAGEM_1" class="img1">
+
+                <!-- IMAGEM 2 -->
+                <img src="COLOCA_AQUI_O_LINK_DA_IMAGEM_2" class="img2">
+
+                <!-- IMAGEM 3 -->
+                <img src="COLOCA_AQUI_O_LINK_DA_IMAGEM_3" class="img3">
+
+                <!-- IMAGEM 4 -->
+                <img src="COLOCA_AQUI_O_LINK_DA_IMAGEM_4" class="img4">
+
             </div>
         </div>
 
+        <a href="#eletronica" class="btn">Explorar Produtos</a>
     </div>
 </section>
 
@@ -170,7 +183,6 @@
 </footer>
 
 <script>
-/* TEMA */
 const toggle = document.getElementById('theme-toggle');
 toggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
@@ -178,7 +190,6 @@ toggle.addEventListener('click', () => {
     toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
 });
 
-/* PARTICULAS */
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -200,13 +211,9 @@ function animate(){
     for(let p of particles){
         ctx.beginPath();
         ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle = document.body.classList.contains('dark-mode') 
-            ? 'rgba(255,255,255,0.6)' 
-            : 'rgba(255,255,255,0.3)';
+        ctx.fillStyle = document.body.classList.contains('dark-mode') ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.3)';
         ctx.fill();
-        p.x += p.dx; 
-        p.y += p.dy;
-
+        p.x += p.dx; p.y += p.dy;
         if(p.x<0||p.x>canvas.width)p.dx*=-1;
         if(p.y<0||p.y>canvas.height)p.dy*=-1;
     }
@@ -218,16 +225,6 @@ window.addEventListener('resize',()=>{
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
-
-/* CARROSSEL */
-let index = 0;
-const images = document.querySelectorAll(".carousel-box img");
-
-setInterval(() => {
-    images[index].classList.remove("active");
-    index = (index + 1) % images.length;
-    images[index].classList.add("active");
-}, 3000);
 </script>
 
 </body>
