@@ -16,12 +16,11 @@
         }
 
         .carousel {
-            width: 520px;
-            height: 320px;
+            width: 500px;
+            height: 300px;
             position: relative;
             overflow: hidden;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .carousel img {
@@ -71,14 +70,14 @@
     </div>
 </section>
 
-<!-- CARROSSEL -->
+<!-- CARROSSEL NO MEIO DA PÁGINA -->
 <div class="carousel-container">
     <div class="carousel" id="carousel">
 
-        <img src="https://source.unsplash.com/800x600/?electronics,circuit" class="active">
-        <img src="https://source.unsplash.com/800x600/?arduino,microcontroller">
-        <img src="https://source.unsplash.com/800x600/?gears,mechanical">
-        <img src="https://source.unsplash.com/800x600/?robot,engine">
+        <img src="imagem1.jpg" class="active">
+        <img src="imagem2.jpg">
+        <img src="imagem3.jpg">
+        <img src="imagem4.jpg">
 
     </div>
 </div>
@@ -201,12 +200,9 @@ function animate(){
     for(let p of particles){
         ctx.beginPath();
         ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle = document.body.classList.contains('dark-mode')
-            ? 'rgba(255,255,255,0.6)'
-            : 'rgba(255,255,255,0.3)';
+        ctx.fillStyle = document.body.classList.contains('dark-mode') ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.3)';
         ctx.fill();
         p.x += p.dx; p.y += p.dy;
-
         if(p.x<0||p.x>canvas.width)p.dx*=-1;
         if(p.y<0||p.y>canvas.height)p.dy*=-1;
     }
