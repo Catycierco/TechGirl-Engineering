@@ -7,49 +7,42 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        /* =======================
-           CARROSSEL FUNCIONAL
-        ======================= */
-
+        /* CARROSSEL */
         .carousel {
-            width: 320px;
-            height: 220px;
+            width: 300px;
+            height: 300px;
             margin: 40px auto;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            perspective: 1000px;
         }
 
-        .carousel-track {
-            display: flex;
-            width: 400%;
-            height: 100%;
-            animation: slide 12s infinite;
-        }
-
-        .carousel-track img {
+        .carousel-inner {
             width: 100%;
-            height: 220px;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 12s infinite linear;
+        }
+
+        .carousel-inner img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            flex-shrink: 0;
+            border-radius: 15px;
         }
 
-        @keyframes slide {
-            0% { transform: translateX(0%); }
-            25% { transform: translateX(-100%); }
-            50% { transform: translateX(-200%); }
-            75% { transform: translateX(-300%); }
-            100% { transform: translateX(0%); }
-        }
+        .img1 { transform: rotateY(0deg) translateZ(150px); }
+        .img2 { transform: rotateY(90deg) translateZ(150px); }
+        .img3 { transform: rotateY(180deg) translateZ(150px); }
+        .img4 { transform: rotateY(270deg) translateZ(150px); }
 
+        @keyframes rotate {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
     </style>
-</head>
 
+</head>
 <body class="light-mode">
 
 <canvas id="particle-canvas"></canvas>
@@ -74,21 +67,26 @@
     </div>
 </header>
 
-<!-- ===================== HOME ===================== -->
 <section id="home" class="hero">
     <div class="container">
-
         <h2>Engenharia com Cor, Potência e Precisão</h2>
         <p>Peças de eletrónica e mecânica para mentes criativas e inovadoras.</p>
 
-        <!-- ================= CARROSSEL ================= -->
+        <!-- 🔽 AQUI METES OS LINKS DAS IMAGENS 🔽 -->
         <div class="carousel">
-            <div class="carousel-track">
+            <div class="carousel-inner">
 
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Arduino_Uno_-_R3.jpg">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/ESP32-WROOM-32.jpg">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Gears2.jpg">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Ball_bearing.jpg">
+                <!-- IMAGEM 1 -->
+                <img src="COLOCA_AQUI_O_LINK_DA_IMAGEM_1" class="img1">
+
+                <!-- IMAGEM 2 -->
+                <img src="COLOCA_AQUI_O_LINK_DA_IMAGEM_2" class="img2">
+
+                <!-- IMAGEM 3 -->
+                <img src="COLOCA_AQUI_O_LINK_DA_IMAGEM_3" class="img3">
+
+                <!-- IMAGEM 4 -->
+                <img src="COLOCA_AQUI_O_LINK_DA_IMAGEM_4" class="img4">
 
             </div>
         </div>
@@ -97,72 +95,94 @@
     </div>
 </section>
 
-<!-- ================= ELETRÓNICA ================= -->
 <section id="eletronica" class="produtos">
     <div class="container">
         <h2>⚡ Peças de Eletrónica</h2>
-
         <div class="cards">
+
             <a href="microcontroladores.html" class="card">
-                <h3>Microcontroladores</h3>
-                <p>Arduino, ESP32, Raspberry Pi.</p>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Microcontroladores</h3>
+                        <p>Arduino, ESP32, Raspberry Pi.</p>
+                    </div>
+                </div>
             </a>
 
             <a href="sensores.html" class="card">
-                <h3>Sensores</h3>
-                <p>Temperatura, movimento, luz.</p>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Sensores</h3>
+                        <p>Temperatura, movimento, luz.</p>
+                    </div>
+                </div>
             </a>
 
             <a href="componentes.html" class="card">
-                <h3>Componentes</h3>
-                <p>Resistências, LEDs, transístores.</p>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Componentes</h3>
+                        <p>Resistências, LEDs, transístores.</p>
+                    </div>
+                </div>
             </a>
+
         </div>
     </div>
 </section>
 
-<!-- ================= MECÂNICA ================= -->
 <section id="mecanica" class="produtos destaque">
     <div class="container">
         <h2>🔧 Peças de Mecânica</h2>
-
         <div class="cards">
+
             <a href="rolamentos.html" class="card">
-                <h3>Rolamentos</h3>
-                <p>Alta precisão industrial.</p>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Rolamentos</h3>
+                        <p>Alta precisão industrial.</p>
+                    </div>
+                </div>
             </a>
 
             <a href="engrenagens.html" class="card">
-                <h3>Engrenagens</h3>
-                <p>Metálicas e técnicas.</p>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Engrenagens</h3>
+                        <p>Metálicas e técnicas.</p>
+                    </div>
+                </div>
             </a>
 
             <a href="motores.html" class="card">
-                <h3>Motores</h3>
-                <p>DC, Servo e industriais.</p>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Motores</h3>
+                        <p>DC, Servo e industriais.</p>
+                    </div>
+                </div>
             </a>
+
         </div>
     </div>
 </section>
 
-<!-- ================= CONTATO ================= -->
 <section id="contato" class="contato">
     <div class="container">
         <h2>Entre em Contato</h2>
         <p>Precisa de ajuda ou orçamento personalizado? Fale connosco.</p>
 
-        <a href="contato.html" class="btn">Abrir Formulário</a>
+        <a href="contato.html" class="btn">Abrir Formulário de Contato</a>
     </div>
 </section>
 
 <footer>
     <div class="container">
-        <p>© 2026 TechGirl Engineering 💜</p>
+        <p>© 2026 TechGirl Engineering 💜 | Engenharia com Estilo</p>
     </div>
 </footer>
 
 <script>
-// THEME
 const toggle = document.getElementById('theme-toggle');
 toggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
@@ -170,16 +190,13 @@ toggle.addEventListener('click', () => {
     toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
 });
 
-// PARTICLES
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particles = [];
-
-for(let i=0;i<100;i++){
+for(let i=0;i<150;i++){
     particles.push({
         x: Math.random()*canvas.width,
         y: Math.random()*canvas.height,
@@ -191,29 +208,20 @@ for(let i=0;i<100;i++){
 
 function animate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
-
     for(let p of particles){
         ctx.beginPath();
         ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle = document.body.classList.contains('dark-mode')
-            ? 'rgba(255,255,255,0.6)'
-            : 'rgba(0,0,0,0.2)';
-
+        ctx.fillStyle = document.body.classList.contains('dark-mode') ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.3)';
         ctx.fill();
-
-        p.x += p.dx;
-        p.y += p.dy;
-
-        if(p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if(p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        p.x += p.dx; p.y += p.dy;
+        if(p.x<0||p.x>canvas.width)p.dx*=-1;
+        if(p.y<0||p.y>canvas.height)p.dy*=-1;
     }
-
     requestAnimationFrame(animate);
 }
-
 animate();
 
-window.addEventListener('resize', () => {
+window.addEventListener('resize',()=>{
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
