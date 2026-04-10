@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<title>TechGirl Engineering</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>TechGirl Engineering</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 
 <style>
 
@@ -43,55 +43,213 @@
 
 </style>
 </head>
-
 <body class="light-mode">
 
 <canvas id="particle-canvas"></canvas>
 
 <header>
-<div class="container nav-container">
-    <div class="logo">
-        <span class="logo-icon">⚙️</span>
-        <span class="logo-text">TechGirl Engineering</span>
+    <div class="container nav-container">
+        <div class="logo">
+            <span class="logo-icon">⚙️</span>
+            <span class="logo-text">TechGirl Engineering</span>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#eletronica">Eletrónica</a></li>
+                <li><a href="#mecanica">Mecânica</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <button id="theme-toggle">🌙</button>
     </div>
-
-    <nav>
-        <ul>
-            <li><a href="#home">Início</a></li>
-            <li><a href="#eletronica">Eletrónica</a></li>
-            <li><a href="#mecanica">Mecânica</a></li>
-            <li><a href="contato.html">Contato</a></li>
-        </ul>
-    </nav>
-
-    <button id="theme-toggle">🌙</button>
-</div>
 </header>
 
-<!-- ================= HOME ================= -->
 <section id="home" class="hero">
-<div class="container">
-    <h2>Engenharia com Cor, Potência e Precisão</h2>
-    <p>Peças de eletrónica e mecânica para mentes criativas e inovadoras.</p>
+    <div class="container">
+        <h2>Engenharia com Cor, Potência e Precisão</h2>
+        <p>Peças de eletrónica e mecânica para mentes criativas e inovadoras.</p>
+        
+<div class="cube-container">
+    <div class="cube">
 
-    <!-- 🔽 CUBO IGUAL À IMAGEM 🔽 -->
-    <div class="cube-container">
-        <div class="cube">
-            <div class="face front"></div>
-            <div class="face back"></div>
-            <div class="face right"></div>
-            <div class="face left"></div>
-            <div class="face top"></div>
-            <div class="face bottom"></div>
+        <div class="face front">
+            <a href="eletronica.html">
+                <img src="https://picsum.photos/500/500?1" alt="Eletrónica">
+            </a>
         </div>
-    </div>
 
-    <a href="#eletronica" class="btn">Explorar Produtos</a>
+        <div class="face back">
+            <a href="mecanica.html">
+                <img src="https://picsum.photos/500/500?2" alt="Mecânica">
+            </a>
+        </div>
+
+        <div class="face right">
+            <a href="sensores.html">
+                <img src="https://picsum.photos/500/500?3" alt="Sensores">
+            </a>
+        </div>
+
+        <div class="face left">
+            <a href="componentes.html">
+                <img src="https://picsum.photos/500/500?4" alt="Componentes">
+            </a>
+        </div>
+
+        <div class="face top">
+            <a href="microcontroladores.html">
+                <img src="https://picsum.photos/500/500?5" alt="Microcontroladores">
+            </a>
+        </div>
+
+        <div class="face bottom">
+            <a href="contato.html">
+                <img src="https://picsum.photos/500/500?6" alt="Contato">
+            </a>
+        </div>
+
+    </div>
 </div>
+
+        <a href="#eletronica" class="btn">Explorar Produtos</a>
+    </div>
 </section>
 
+<section id="eletronica" class="produtos">
+    <div class="container">
+        <h2>⚡ Peças de Eletrónica</h2>
+        <div class="cards">
+
+            <a href="microcontroladores.html" class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Microcontroladores</h3>
+                        <p>Arduino, ESP32, Raspberry Pi.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="sensores.html" class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Sensores</h3>
+                        <p>Temperatura, movimento, luz.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="componentes.html" class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Componentes</h3>
+                        <p>Resistências, LEDs, transístores.</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<section id="mecanica" class="produtos destaque">
+    <div class="container">
+        <h2>🔧 Peças de Mecânica</h2>
+        <div class="cards">
+
+            <a href="rolamentos.html" class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Rolamentos</h3>
+                        <p>Alta precisão industrial.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="engrenagens.html" class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Engrenagens</h3>
+                        <p>Metálicas e técnicas.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="motores.html" class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Motores</h3>
+                        <p>DC, Servo e industriais.</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<section id="contato" class="contato">
+    <div class="container">
+        <h2>Entre em Contato</h2>
+        <p>Precisa de ajuda ou orçamento personalizado? Fale connosco.</p>
+
+        <a href="contato.html" class="btn">Abrir Formulário de Contato</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2026 TechGirl Engineering 💜 | Engenharia com Estilo</p>
+    </div>
+</footer>
+
 <script>
-// (o teu JS fica igual, não mexi)
+const toggle = document.getElementById('theme-toggle');
+toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    document.body.classList.toggle('light-mode');
+    toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+});
+
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+for(let i=0;i<150;i++){
+    particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*2+1,
+        dx: (Math.random()-0.5)*0.5,
+        dy: (Math.random()-0.5)*0.5
+    });
+}
+
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for(let p of particles){
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle = document.body.classList.contains('dark-mode') ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.3)';
+        ctx.fill();
+        p.x += p.dx; 
+        p.y += p.dy;
+
+        if(p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if(p.y < 0 || p.y > canvas.height) p.dy *= -1;
+    }
+    requestAnimationFrame(animate);
+}
+animate();
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
 </script>
 
 </body>
