@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
@@ -7,34 +7,40 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* CARROSSEL */
-        .carousel-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            margin: 50px 0;
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
         }
 
+        /* CARROSSEL MAIS SIMPLES E 100% FUNCIONAL */
         .carousel {
-            width: 520px;
-            height: 320px;
-            position: relative;
+            width: 320px;
+            height: 220px;
+            margin: 40px auto;
             overflow: hidden;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
         }
 
-        .carousel img {
-            width: 100%;
+        .carousel-track {
+            display: flex;
+            width: 400%;
             height: 100%;
-            position: absolute;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+            animation: slide 12s infinite;
         }
 
-        .carousel img.active {
-            opacity: 1;
+        .carousel-track img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        @keyframes slide {
+            0%   { transform: translateX(0%); }
+            25%  { transform: translateX(-100%); }
+            50%  { transform: translateX(-200%); }
+            75%  { transform: translateX(-300%); }
+            100% { transform: translateX(0%); }
         }
     </style>
 </head>
@@ -63,62 +69,62 @@
     </div>
 </header>
 
+<!-- HERO -->
 <section id="home" class="hero">
     <div class="container">
+
         <h2>Engenharia com Cor, Potência e Precisão</h2>
         <p>Peças de eletrónica e mecânica para mentes criativas e inovadoras.</p>
+
+        <!-- 🔽 CARROSSEL FUNCIONAL 🔽 -->
+        <div class="carousel">
+            <div class="carousel-track">
+
+                <!-- ⚡ Eletrónica -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Arduino_Uno_-_R3.jpg">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/ESP32-WROOM-32.jpg">
+
+                <!-- 🔧 Mecânica -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Gears2.jpg">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Ball_bearing.jpg">
+
+            </div>
+        </div>
+
         <a href="#eletronica" class="btn">Explorar Produtos</a>
     </div>
 </section>
 
-<!-- CARROSSEL -->
-<div class="carousel-container">
-    <div class="carousel" id="carousel">
-
-        <img src="https://source.unsplash.com/800x600/?electronics,circuit" class="active">
-        <img src="https://source.unsplash.com/800x600/?arduino,microcontroller">
-        <img src="https://source.unsplash.com/800x600/?gears,mechanical">
-        <img src="https://source.unsplash.com/800x600/?robot,engine">
-
-    </div>
-</div>
-
+<!-- ELETRÓNICA -->
 <section id="eletronica" class="produtos">
     <div class="container">
         <h2>⚡ Peças de Eletrónica</h2>
         <div class="cards">
-
             <a href="microcontroladores.html" class="card">
                 <div class="card-inner">
-                    <div class="card-front">
-                        <h3>Microcontroladores</h3>
-                        <p>Arduino, ESP32, Raspberry Pi.</p>
-                    </div>
+                    <h3>Microcontroladores</h3>
+                    <p>Arduino, ESP32, Raspberry Pi.</p>
                 </div>
             </a>
 
             <a href="sensores.html" class="card">
                 <div class="card-inner">
-                    <div class="card-front">
-                        <h3>Sensores</h3>
-                        <p>Temperatura, movimento, luz.</p>
-                    </div>
+                    <h3>Sensores</h3>
+                    <p>Temperatura, movimento, luz.</p>
                 </div>
             </a>
 
             <a href="componentes.html" class="card">
                 <div class="card-inner">
-                    <div class="card-front">
-                        <h3>Componentes</h3>
-                        <p>Resistências, LEDs, transístores.</p>
-                    </div>
+                    <h3>Componentes</h3>
+                    <p>Resistências, LEDs, transístores.</p>
                 </div>
             </a>
-
         </div>
     </div>
 </section>
 
+<!-- MECÂNICA -->
 <section id="mecanica" class="produtos destaque">
     <div class="container">
         <h2>🔧 Peças de Mecânica</h2>
@@ -126,28 +132,22 @@
 
             <a href="rolamentos.html" class="card">
                 <div class="card-inner">
-                    <div class="card-front">
-                        <h3>Rolamentos</h3>
-                        <p>Alta precisão industrial.</p>
-                    </div>
+                    <h3>Rolamentos</h3>
+                    <p>Alta precisão industrial.</p>
                 </div>
             </a>
 
             <a href="engrenagens.html" class="card">
                 <div class="card-inner">
-                    <div class="card-front">
-                        <h3>Engrenagens</h3>
-                        <p>Metálicas e técnicas.</p>
-                    </div>
+                    <h3>Engrenagens</h3>
+                    <p>Metálicas e técnicas.</p>
                 </div>
             </a>
 
             <a href="motores.html" class="card">
                 <div class="card-inner">
-                    <div class="card-front">
-                        <h3>Motores</h3>
-                        <p>DC, Servo e industriais.</p>
-                    </div>
+                    <h3>Motores</h3>
+                    <p>DC, Servo e industriais.</p>
                 </div>
             </a>
 
@@ -155,11 +155,11 @@
     </div>
 </section>
 
+<!-- CONTATO -->
 <section id="contato" class="contato">
     <div class="container">
         <h2>Entre em Contato</h2>
         <p>Precisa de ajuda ou orçamento personalizado? Fale connosco.</p>
-
         <a href="contato.html" class="btn">Abrir Formulário de Contato</a>
     </div>
 </section>
@@ -171,7 +171,7 @@
 </footer>
 
 <script>
-// TEMA
+// THEME
 const toggle = document.getElementById('theme-toggle');
 toggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
@@ -179,14 +179,16 @@ toggle.addEventListener('click', () => {
     toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
 });
 
-// PARTÍCULAS
+// PARTICLES
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particles = [];
-for(let i=0;i<150;i++){
+
+for(let i=0;i<100;i++){
     particles.push({
         x: Math.random()*canvas.width,
         y: Math.random()*canvas.height,
@@ -198,37 +200,32 @@ for(let i=0;i<150;i++){
 
 function animate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
+
     for(let p of particles){
         ctx.beginPath();
         ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
         ctx.fillStyle = document.body.classList.contains('dark-mode')
             ? 'rgba(255,255,255,0.6)'
-            : 'rgba(255,255,255,0.3)';
-        ctx.fill();
-        p.x += p.dx; p.y += p.dy;
+            : 'rgba(0,0,0,0.2)';
 
-        if(p.x<0||p.x>canvas.width)p.dx*=-1;
-        if(p.y<0||p.y>canvas.height)p.dy*=-1;
+        ctx.fill();
+
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if(p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if(p.y < 0 || p.y > canvas.height) p.dy *= -1;
     }
+
     requestAnimationFrame(animate);
 }
+
 animate();
 
-window.addEventListener('resize',()=>{
+window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
-
-// CARROSSEL
-let index = 0;
-const images = document.querySelectorAll("#carousel img");
-
-setInterval(() => {
-    images[index].classList.remove("active");
-    index = (index + 1) % images.length;
-    images[index].classList.add("active");
-}, 3000);
-
 </script>
 
 </body>
