@@ -57,8 +57,8 @@
 .bottom { transform: rotateX(-90deg) translateZ(150px); }
 
 </style>
-</head>
 
+</head>
 <body class="light-mode">
 
 <canvas id="particle-canvas"></canvas>
@@ -87,43 +87,32 @@
     <div class="container">
         <h2>Engenharia com Cor, Potência e Precisão</h2>
         <p>Peças de eletrónica e mecânica para mentes criativas e inovadoras.</p>
-
+        
         <div class="cube-container">
             <div class="cube">
 
                 <div class="face front">
-                    <a href="eletronica.html">
-                        <img src="https://picsum.photos/id/180/500/300">
+                        <img src="https://picsum.photos/500/300">
                     </a>
                 </div>
 
                 <div class="face back">
-                    <a href="mecanica.html">
-                        <img src="https://picsum.photos/id/250/500/300">
-                    </a>
-                </div>
-
-                <div class="face right">
-                    <a href="sensores.html">
-                        <img src="https://picsum.photos/id/365/500/300">
-                    </a>
-                </div>
-
-                <div class="face left">
-                    <a href="componentes.html">
-                        <img src="https://picsum.photos/id/431/500/300">
-                    </a>
-                </div>
-
-                <div class="face top">
-                    <a href="microcontroladores.html">
                         <img src="https://picsum.photos/id/180/500/300">
                     </a>
                 </div>
 
-                <div class="face bottom">
-                    <a href="contato.html">
-                        <img src="https://picsum.photos/id/250/500/300">
+                <div class="face right">
+                        <img src="https://picsum.photos/id/249/500/300">
+                    </a>
+                </div>
+
+                <div class="face left">
+                        <img src="https://picsum.photos/id/433/500/300">
+                    </a>
+                </div>
+
+                <div class="face top">
+                        <img src="https://picsum.photos/id/1060/500/300">
                     </a>
                 </div>
 
@@ -133,6 +122,93 @@
         <a href="#eletronica" class="btn">Explorar Produtos</a>
     </div>
 </section>
+
+<section id="eletronica" class="produtos">
+    <div class="container">
+        <h2>⚡ Peças de Eletrónica</h2>
+        <div class="cards">
+
+            <a href="microcontroladores.html" class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Microcontroladores</h3>
+                        <p>Arduino, ESP32, Raspberry Pi.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="sensores.html" class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Sensores</h3>
+                        <p>Temperatura, movimento, luz.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="componentes.html" class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Componentes</h3>
+                        <p>Resistências, LEDs, transístores.</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<section id="mecanica" class="produtos destaque">
+    <div class="container">
+        <h2>🔧 Peças de Mecânica</h2>
+        <div class="cards">
+
+            <a href="rolamentos.html" class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Rolamentos</h3>
+                        <p>Alta precisão industrial.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="engrenagens.html" class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Engrenagens</h3>
+                        <p>Metálicas e técnicas.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="motores.html" class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Motores</h3>
+                        <p>DC, Servo e industriais.</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<section id="contato" class="contato">
+    <div class="container">
+        <h2>Entre em Contato</h2>
+        <p>Precisa de ajuda ou orçamento personalizado? Fale connosco.</p>
+
+        <a href="contato.html" class="btn">Abrir Formulário de Contato</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2026 TechGirl Engineering 💜 | Engenharia com Estilo</p>
+    </div>
+</footer>
 
 <script>
 const toggle = document.getElementById('theme-toggle');
@@ -163,22 +239,17 @@ function animate(){
     for(let p of particles){
         ctx.beginPath();
         ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle = document.body.classList.contains('dark-mode')
-            ? 'rgba(255,255,255,0.6)'
-            : 'rgba(255,255,255,0.3)';
+        ctx.fillStyle = document.body.classList.contains('dark-mode') ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.3)';
         ctx.fill();
-
-        p.x += p.dx;
-        p.y += p.dy;
-
-        if(p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if(p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        p.x += p.dx; p.y += p.dy;
+        if(p.x<0||p.x>canvas.width)p.dx*=-1;
+        if(p.y<0||p.y>canvas.height)p.dy*=-1;
     }
     requestAnimationFrame(animate);
 }
 animate();
 
-window.addEventListener('resize', () => {
+window.addEventListener('resize',()=>{
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
